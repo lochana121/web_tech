@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 7 - Holy Grail Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      grid-column: 1 / -1;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas: "sidebar main right-sidebar" "sidebar advertisement right-sidebar";
+      grid-template-columns: 200px 1fr 300px;
+      gap: 20px;
+    }
+
+    .sidebar, .right-sidebar {
+      background-color: #eeeeee;
+      padding: 20px;
+    }
+
+    .main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+    }
+
+    #calculator {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .advertisement {
+      grid-area: advertisement;
+      text-align: center;
+    }
+
+    .advertisement img {
+      width: 100%;
+      max-height: 100%;
+      border: 0; /* Remove border from clickable image */
+    }
+
+    .content-section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My Website</h1>
+    <img src="https://cdnapisec.kaltura.com/p/2172211/thumbnail/entry_id/1_9wwhtau4/def_height/500/def_width/500/" alt="Header Image" width="200" height="100">
+  </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <h2>Web Wonders Hub</h2>
+
+      <div class="content-section">
+        <h3>About Us</h3>
+        <p>We are a dedicated team passionate about creating awesome websites. Our goal is to provide valuable content and interactive experiences for our visitors.</p>
+      </div>
+
+      <div class="content-section">
+        <h3>Services</h3>
+        <p>We offer a range of services including web development, design, and consulting. Our experienced team is here to meet your digital needs.</p>
+      </div>
+
+      <div id="calculator">
+        <h3>Rectangle Area Calculator</h3>
+        <label for="length">Length:</label>
+        <input type="number" id="length" placeholder="Enter length">
+
+        <label for="width">Width:</label>
+        <input type="number" id="width" placeholder="Enter width">
+
+        <button onclick="calculateArea()">Calculate Area</button>
+
+        <p id="result">Area: </p>
+      </div>
+    </div>
+
+    <div class="right-sidebar">
+      <h2>Latest News</h2>
+      <p>Stay tuned for our latest updates and news. Exciting things are happening at our company!</p>
+    </div>
+
+    <div class="advertisement">
+      <a href="https://www.amazon.com/" target="_blank">
+        <!-- Replace the placeholder image URL with your actual image URL -->amazon.com
+        <img src="https://ae01.alicdn.com/kf/Hb7db653490ac4007b17505a836236e0fB/Creative-quicksand-cute-calculator-transparent-calculator-solar-energy-calculator-student-portable-touch-mini-Solar-calculator.jpg" alt="Advertisement" width="500" height="200">
+    </a>>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact Us: preethie121@gmail.com | Phone: 123-456-7890</p>
+    <p>Addendum: This page features a Holy Grail layout with an interactive JavaScript rectangle area calculator. The calculator allows users to input the length and width of a rectangle, and it dynamically calculates and displays the area. Minimal difficulties were encountered, and solutions involved proper organization of CSS grid areas for layout consistency.</p>
+  </footer>
+
+  <script>
+    function calculateArea() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+
+      if (!isNaN(length) && !isNaN(width) && length > 0 && width > 0) {
+        const area = length * width;
+        document.getElementById('result').textContent = `Area: ${area.toFixed(2)}`;
+      } else {
+        document.getElementById('result').textContent = 'Please enter valid positive numbers for length and width.';
+      }
+    }
+  </script>
+
+</body>
+</html>
